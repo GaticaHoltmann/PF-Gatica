@@ -1,0 +1,71 @@
+#nav {
+    display: flex;
+    background: linear-gradient(to top, rgba(194, 13, 0, 0.867), rgb(255, 123, 0));
+    grid-area: nav;
+    flex-direction: column;
+    align-items: center;
+
+    img#logo {
+        width: 40vw;
+        height: 10vh;
+        border-radius: 5rem;
+    }
+
+    input.toggle[type='checkbox'] {
+        display: none;
+    }
+}
+
+.lbl-toggle {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem;
+    cursor: pointer;
+    margin: auto;
+    color: white;
+
+    &::before {
+        content: ' ';
+        display: inline-block;
+
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid currentColor;
+
+        vertical-align: middle;
+        margin-right: .7rem;
+        transform: translateY(-2px);
+
+        /* credits https://css-tricks.com/snippets/css/css-triangle/ */
+    }
+}
+
+.nav-menu {
+    max-height: 0px;
+    text-align: center;
+    transition: max-height .15s ease;
+    text-transform: uppercase;
+    z-index: -1;
+}
+
+.menu-option {
+    margin: auto;
+    height: 4vh;
+    background: rgba(194, 13, 0, 0.867);
+    padding-top: 1rem;
+    width: 100vw;
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        position: relative;
+    }
+}
+
+.toggle:checked {
+    +.lbl-toggle+.nav-menu {
+        max-height: 20vh;
+        z-index: 1;
+    }
+}
