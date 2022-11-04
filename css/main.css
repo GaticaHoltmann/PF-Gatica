@@ -12,6 +12,14 @@
   overflow: hidden;
 }
 
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
 #nav {
   display: flex;
   background: linear-gradient(to top, rgba(194, 13, 0, 0.867), rgb(255, 123, 0));

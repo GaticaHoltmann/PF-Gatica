@@ -15,6 +15,14 @@
     overflow: hidden;
 }
 
+.not-found{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 $tablet-screen: 768px;
 $desktop-screen: 1200px;
 
