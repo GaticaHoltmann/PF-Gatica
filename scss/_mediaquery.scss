@@ -1,6 +1,4 @@
 @media screen and (min-width: $tablet-screen) {
-
-    /* Header tablet */
     #nav {
         flex-direction: row;
 
@@ -8,22 +6,29 @@
             width: 30vw;
             height: 20vh;
         }
+        .burguerBtn{
+            display: none;
+        }
+        .toggle + label{
+            display: block;
+            margin: auto;
+        }
+        input.toggle[type='checkbox'] {
+            &:checked{
+                ~.nav-menu{
+                    transition: all 0.5s;
+                    max-height: 20vh;
+                    max-width: 40vw;
+                }
+            }
+        }
     }
-
     .nav-menu {
         max-width: 0px;
         text-align: center;
         transition: max-width .15s ease;
         list-style-type: none;
     }
-
-    .toggle:checked {
-        +.lbl-toggle+.nav-menu {
-            max-width: 40vw;
-            z-index: 0;
-        }
-    }
-
     .menu-option {
         margin: auto;
         height: 25vh;
@@ -33,7 +38,6 @@
         padding-top: 0%;
     }
 
-    /* Main tablet */
     #images-sorter {
         height: 45vh;
     }
@@ -94,8 +98,6 @@
         grid-template-rows: 10vh 80vh 10vh;
     }
 
-    /*Header Desktop  */
-
     #nav {
         height: 10vh;
         justify-content: space-evenly;
@@ -105,10 +107,10 @@
             height: 10vh;
             width: 10vw;
         }
-    }
-
-    .lbl-toggle {
-        display: none;
+        
+        .toggle + label{
+            display: none;
+        }
     }
 
     .nav-menu {
@@ -153,8 +155,6 @@
         width: fit-content;
         padding: 2rem;
     }
-
-    /*Main Desktop */
 
     #container-products {
         flex-wrap: wrap;

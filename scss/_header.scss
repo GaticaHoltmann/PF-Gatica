@@ -12,75 +12,20 @@
     }
 
     input.toggle[type='checkbox'] {
-        display: block;
-        opacity: 0;
+        display: none;
         cursor: pointer;
-        width: 40px;
-        height: 32px;
-        transform-origin: 4px 0px;
-
         &:checked {
-            ~span {
-                opacity: 1;
-                transform: rotate(-45deg) translate(0px, -5px);
-                background: #232323;
-                transition: all 0.3s;
-            }
-
-            ~span:first-of-type {
-                transform: rotate(45deg) translate(0px, -3px);
-                transform-origin: 0% 0%;
-            }
-
-            ~span:nth-last-child(2) {
-                transform-origin: 28% 100%;
-            }
-
             ~.nav-menu {
+                transition: all 0.5s;
                 max-height: 3vh;
                 z-index: 1;
             }
+            ~.nav-menu > .menu-option{
+                background: rgba(194, 13, 0, 0.867);
+            }
         }
     }
-
-    span {
-        display: block;
-        width: 33px;
-        height: 4px;
-        margin-bottom: 5px;
-        position: relative;
-
-        background: #cdcdcd;
-        border-radius: 3px;
-
-        z-index: 1;
-    }
 }
-
-// .lbl-toggle {
-//     font-weight: bold;
-//     text-transform: uppercase;
-//     padding: 1rem;
-//     cursor: pointer;
-//     margin: auto;
-//     color: white;
-
-//     &::before {
-//         content: ' ';
-//         display: inline-block;
-
-//         border-top: 5px solid transparent;
-//         border-bottom: 5px solid transparent;
-//         border-left: 5px solid currentColor;
-
-//         vertical-align: middle;
-//         margin-right: .7rem;
-//         transform: translateY(-2px);
-
-//         /* credits https://css-tricks.com/snippets/css/css-triangle/ */
-//     }
-// }
-
 .nav-menu {
     max-height: 0px;
     text-align: center;
@@ -92,7 +37,7 @@
 .menu-option {
     margin: auto;
     height: 4vh;
-    background: rgba(194, 13, 0, 0.867);
+    background: rgba(243, 236, 235, 0.867);
     padding-top: 1rem;
     width: 100vw;
 

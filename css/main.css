@@ -25,39 +25,16 @@
   border-radius: 5rem;
 }
 #nav input.toggle[type=checkbox] {
-  display: block;
-  opacity: 0;
+  display: none;
   cursor: pointer;
-  width: 40px;
-  height: 32px;
-  transform-origin: 4px 0px;
-}
-#nav input.toggle[type=checkbox]:checked ~ span {
-  opacity: 1;
-  transform: rotate(-45deg) translate(0px, -5px);
-  background: #232323;
-  transition: all 0.3s;
-}
-#nav input.toggle[type=checkbox]:checked ~ span:first-of-type {
-  transform: rotate(45deg) translate(0px, -3px);
-  transform-origin: 0% 0%;
-}
-#nav input.toggle[type=checkbox]:checked ~ span:nth-last-child(2) {
-  transform-origin: 28% 100%;
 }
 #nav input.toggle[type=checkbox]:checked ~ .nav-menu {
+  transition: all 0.5s;
   max-height: 3vh;
   z-index: 1;
 }
-#nav span {
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  background: #cdcdcd;
-  border-radius: 3px;
-  z-index: 1;
+#nav input.toggle[type=checkbox]:checked ~ .nav-menu > .menu-option {
+  background: rgba(194, 13, 0, 0.867);
 }
 
 .nav-menu {
@@ -71,7 +48,7 @@
 .menu-option {
   margin: auto;
   height: 4vh;
-  background: rgba(194, 13, 0, 0.867);
+  background: rgba(243, 236, 235, 0.867);
   padding-top: 1rem;
   width: 100vw;
 }
@@ -285,7 +262,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* Header tablet */
   #nav {
     flex-direction: row;
   }
@@ -293,15 +269,23 @@
     width: 30vw;
     height: 20vh;
   }
+  #nav .burguerBtn {
+    display: none;
+  }
+  #nav .toggle + label {
+    display: block;
+    margin: auto;
+  }
+  #nav input.toggle[type=checkbox]:checked ~ .nav-menu {
+    transition: all 0.5s;
+    max-height: 20vh;
+    max-width: 40vw;
+  }
   .nav-menu {
     max-width: 0px;
     text-align: center;
     transition: max-width 0.15s ease;
     list-style-type: none;
-  }
-  .toggle:checked + .lbl-toggle + .nav-menu {
-    max-width: 40vw;
-    z-index: 0;
   }
   .menu-option {
     margin: auto;
@@ -311,7 +295,6 @@
     line-height: 25vh;
     padding-top: 0%;
   }
-  /* Main tablet */
   #images-sorter {
     height: 45vh;
   }
@@ -357,7 +340,6 @@
   #container-app {
     grid-template-rows: 10vh 80vh 10vh;
   }
-  /*Header Desktop  */
   #nav {
     height: 10vh;
     justify-content: space-evenly;
@@ -367,7 +349,7 @@
     height: 10vh;
     width: 10vw;
   }
-  .lbl-toggle {
+  #nav .toggle + label {
     display: none;
   }
   .nav-menu {
@@ -407,7 +389,6 @@
     width: fit-content;
     padding: 2rem;
   }
-  /*Main Desktop */
   #container-products {
     flex-wrap: wrap;
     width: 70vw;
