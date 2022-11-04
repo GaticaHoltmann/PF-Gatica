@@ -12,33 +12,74 @@
     }
 
     input.toggle[type='checkbox'] {
-        display: none;
+        display: block;
+        opacity: 0;
+        cursor: pointer;
+        width: 40px;
+        height: 32px;
+        transform-origin: 4px 0px;
+
+        &:checked {
+            ~span {
+                opacity: 1;
+                transform: rotate(-45deg) translate(0px, -5px);
+                background: #232323;
+                transition: all 0.3s;
+            }
+
+            ~span:first-of-type {
+                transform: rotate(45deg) translate(0px, -3px);
+                transform-origin: 0% 0%;
+            }
+
+            ~span:nth-last-child(2) {
+                transform-origin: 28% 100%;
+            }
+
+            ~.nav-menu {
+                max-height: 3vh;
+                z-index: 1;
+            }
+        }
+    }
+
+    span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+
+        background: #cdcdcd;
+        border-radius: 3px;
+
+        z-index: 1;
     }
 }
 
-.lbl-toggle {
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 1rem;
-    cursor: pointer;
-    margin: auto;
-    color: white;
+// .lbl-toggle {
+//     font-weight: bold;
+//     text-transform: uppercase;
+//     padding: 1rem;
+//     cursor: pointer;
+//     margin: auto;
+//     color: white;
 
-    &::before {
-        content: ' ';
-        display: inline-block;
+//     &::before {
+//         content: ' ';
+//         display: inline-block;
 
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-left: 5px solid currentColor;
+//         border-top: 5px solid transparent;
+//         border-bottom: 5px solid transparent;
+//         border-left: 5px solid currentColor;
 
-        vertical-align: middle;
-        margin-right: .7rem;
-        transform: translateY(-2px);
+//         vertical-align: middle;
+//         margin-right: .7rem;
+//         transform: translateY(-2px);
 
-        /* credits https://css-tricks.com/snippets/css/css-triangle/ */
-    }
-}
+//         /* credits https://css-tricks.com/snippets/css/css-triangle/ */
+//     }
+// }
 
 .nav-menu {
     max-height: 0px;
@@ -60,12 +101,5 @@
         color: white;
         font-weight: bold;
         position: relative;
-    }
-}
-
-.toggle:checked {
-    +.lbl-toggle+.nav-menu {
-        max-height: 20vh;
-        z-index: 1;
     }
 }

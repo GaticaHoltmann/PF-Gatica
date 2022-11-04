@@ -25,27 +25,39 @@
   border-radius: 5rem;
 }
 #nav input.toggle[type=checkbox] {
-  display: none;
-}
-
-.lbl-toggle {
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 1rem;
+  display: block;
+  opacity: 0;
   cursor: pointer;
-  margin: auto;
-  color: white;
+  width: 40px;
+  height: 32px;
+  transform-origin: 4px 0px;
 }
-.lbl-toggle::before {
-  content: " ";
-  display: inline-block;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 5px solid currentColor;
-  vertical-align: middle;
-  margin-right: 0.7rem;
-  transform: translateY(-2px);
-  /* credits https://css-tricks.com/snippets/css/css-triangle/ */
+#nav input.toggle[type=checkbox]:checked ~ span {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0px, -5px);
+  background: #232323;
+  transition: all 0.3s;
+}
+#nav input.toggle[type=checkbox]:checked ~ span:first-of-type {
+  transform: rotate(45deg) translate(0px, -3px);
+  transform-origin: 0% 0%;
+}
+#nav input.toggle[type=checkbox]:checked ~ span:nth-last-child(2) {
+  transform-origin: 28% 100%;
+}
+#nav input.toggle[type=checkbox]:checked ~ .nav-menu {
+  max-height: 3vh;
+  z-index: 1;
+}
+#nav span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
 }
 
 .nav-menu {
@@ -68,11 +80,6 @@
   color: white;
   font-weight: bold;
   position: relative;
-}
-
-.toggle:checked + .lbl-toggle + .nav-menu {
-  max-height: 20vh;
-  z-index: 1;
 }
 
 #main {
